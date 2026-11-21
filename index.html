@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Выдвижение кандидатов на пост Хокаге</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div class="leaf">木ノ葉隠れの里</div>
+      <p class="eyebrow">Деревня Скрытого Листа объявляет</p>
+      <h1>Выдвижение на пост<br><span>Хокаге</span></h1>
+      <p class="intro">Готов взять на себя ответственность за судьбу Деревни и защищать каждого её жителя? Заполни свиток кандидата и обратись к жителям Конохи.</p>
+      <div class="seal" aria-hidden="true">火</div>
+    </header>
+
+    <section class="paper">
+      <div class="paper-inner">
+        <h2>Свиток кандидата</h2>
+        <p class="note">Укажи свой игровой ник, SteamID, текущий ранг и напиши предвыборную речь. После проверки советом кандидаты будут допущены к голосованию.</p>
+
+        <form id="nominationForm">
+          <div class="field">
+            <label for="nickname">Твой игровой ник</label>
+            <input id="nickname" name="nickname" type="text" minlength="3" maxlength="24"
+                   autocomplete="off" placeholder="Например, Minato Namikaze" required>
+          </div>
+
+          <div class="field">
+            <label for="steamId">Твой SteamID</label>
+            <input id="steamId" name="steamId" type="text" maxlength="32"
+                   autocomplete="off" placeholder="STEAM_0:1:12345678 или 76561198000000000" required>
+          </div>
+
+          <div class="field">
+            <label for="rank">Твой текущий ранг</label>
+            <select id="rank" name="rank" required>
+              <option value="" disabled selected>Выбери свой ранг…</option>
+              <option value="Чунин">Чунин</option>
+              <option value="Токубецу Джонин">Токубецу Джонин</option>
+              <option value="Джонин">Джонин</option>
+              <option value="Капитан АНБУ">Капитан АНБУ</option>
+              <option value="Глава клана">Глава клана</option>
+              <option value="Саннин / Старейшина">Саннин / Старейшина</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label for="speech">Предвыборная речь</label>
+              <span id="charCount" class="char-count">0 / 1500</span>
+            </div>
+            <textarea id="speech" name="speech" rows="6" minlength="30" maxlength="1500"
+                      placeholder="Расскажи жителям Конохи о своих целях, планах по развитию деревни и почему именно ты достоин носить шляпу Хокаге (минимум 30 символов)…" required></textarea>
+          </div>
+
+          <button id="submitBtn" type="submit">Поставить печать и подать заявку</button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="smallprint">Одна заявка на один игровой ник и SteamID. После отправки изменить данные нельзя.</p>
+      </div>
+    </section>
+
+    <footer>Воля Огня живёт в тех, кто готов вести за собой.</footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>
